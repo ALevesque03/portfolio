@@ -1,0 +1,21 @@
+<div class="m-auto w-11/12">
+
+  <div id="languages" class="m-auto border border-solid mt-5 p-2 bg-white">
+    <h1 class="font-bold text-lg text-center mb-2 text-teal-blue">Languages</h1>
+    
+    <div class="grid grid-cols-3 gap-3">
+      <% @languages.each do |language| %>
+        <%= link_to language do %>
+          <div class="p-3 border border-solid text-center">
+            <%= render language %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    
+    <div class="mb-2 mt-5 text-center">
+      <%= link_to "New Language", new_language_path, class: "bg-green-700 p-2 rounded text-white" %>
+    </div>
+  </div>
+
+<div>
