@@ -1,0 +1,14 @@
+<div class="m-auto w-11/12">
+
+  <div id="tools" class="m-auto border border-solid mt-5 p-2 bg-white">
+    <%= render @tool %>
+
+    <div class="mb-2 mt-5 text-center">
+      <%= link_to "Edit this tool", edit_tool_path(@tool), class: "bg-green-700 p-2 rounded text-white" %> |
+      <%= link_to "Back to tools", tools_path, class: "bg-green-700 p-2 rounded text-white" %>
+
+      <%= button_to "Destroy this tool", @tool, method: :delete, class: "bg-green-700 p-2 rounded text-white" %>
+    </div>
+ </div>
+
+<div>

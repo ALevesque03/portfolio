@@ -4,5 +4,6 @@ class HomeController < ApplicationController
 
   def about
     @languages = Language.all
+    @tools = Tool.all
   end
 end

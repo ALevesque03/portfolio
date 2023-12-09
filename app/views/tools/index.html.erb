@@ -1,0 +1,23 @@
+<div class="m-auto w-11/12">
+
+  <div id="tools" class="m-auto border border-solid mt-5 p-2 bg-white">
+    <h1 class="font-bold text-lg text-center mb-2 text-teal-blue">Tools</h1>
+
+  <div class="grid grid-cols-3 gap-3 pb-2">
+    <% @tools.each do |tool| %>
+      <%= link_to tool do %>
+        <div class="p-3 border border-solid text-center">
+          <%= render tool %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+    <% if user_signed_in? %>
+      <div class="mb-2 mt-5 text-center">
+        <%= link_to "New tool", new_tool_path, class: "bg-green-700 p-2 rounded text-white" %>
+      </div>
+    <% end %>
+  </div>
+
+<div>

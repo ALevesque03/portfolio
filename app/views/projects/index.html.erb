@@ -1,13 +1,13 @@
 <div class="m-auto w-11/12">
 
   <div id="languages" class="m-auto border border-solid mt-5 p-2 bg-white">
-    <h1 class="font-bold text-lg text-center mb-2 text-teal-blue">Languages</h1>
+    <h1 class="font-bold text-lg text-center mb-2 text-teal-blue">Project</h1>
     
     <div class="grid grid-cols-3 gap-3 pb-2">
-      <% @languages.each do |language| %>
-        <%= link_to language do %>
+      <% @projects.each do |project| %>
+        <%= link_to project do %>
           <div class="p-3 border border-solid text-center">
-            <%= render language %>
+            <%= render project %>
           </div>
         <% end %>
       <% end %>
@@ -15,7 +15,7 @@
     
     <% if user_signed_in? %>
       <div class="mb-2 mt-5 text-center">
-        <%= link_to "New Language", new_language_path, class: "bg-green-700 p-2 rounded text-white" %>
+        <%= link_to "New Project", new_project_path, class: "bg-green-700 p-2 rounded text-white" %>
       </div>
     <% end %>
   </div>

@@ -1,0 +1,16 @@
+<div class="m-auto w-11/12">
+
+  <div id="tools" class="m-auto border border-solid mt-5 p-2 bg-white">
+    <h1>Editing tool</h1>
+
+    <%= render "form", tool: @tool %>
+
+    <br>
+
+    <div class="mb-2 mt-5 text-center">
+      <%= link_to "Show this tool", @tool, class: "bg-green-700 p-2 rounded text-white" %> |
+      <%= link_to "Back to tools", tools_path, class: "bg-green-700 p-2 rounded text-white" %>
+    </div>
+  </div>
+
+<div>

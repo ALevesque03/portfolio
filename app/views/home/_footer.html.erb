@@ -1,4 +1,40 @@
-<div class="absolute bottom-0 left-0">
-    <p>This is my footer</p>
+<div class="absolute bottom-0 left-0 w-full">
+    
+    <%# My bottom div that contains most stuff %>
+    <div class="bg-neutral-700 text-white py-10 px-40">
+        <div class="flex justify-around">
+            <%# First box %>
+            <div class="">
+                <h1>Anthony Levesque</h1>
+                <p>Curious about me?</p>
+                <div class="mb-2 mt-5 text-center">
+                    <%= link_to "Get in touch", home_about_path, class: "bg-green-700 p-2 rounded text-white" %>
+                </div>
+            </div>
+            <%# Second box %>
+            <div class="flex-col">
+                <div>
+                    <%= link_to "About Me", home_about_path, class: "" %>
+                </div>
+                <div>
+                    <%= link_to "Projects", projects_path, class: "" %>
+                </div>
+                <div>
+                    <%= link_to "XXXSomething elseXXX", home_about_path, class: "" %>
+                </div>
+            </div>
+            <%# Third box %>
+            <div class="flex-col">
+                <div>
+                    <%= link_to "Languages", languages_path, class: "" %>
+                </div>
+                <div>
+                    <%= link_to "Tools", tools_path, class: "" %>
+                </div>
+                <div>
+                    <%= link_to "Skills", skills_path, class: "" %>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<%# {position:absolute;bottom:0;left:0;} %>

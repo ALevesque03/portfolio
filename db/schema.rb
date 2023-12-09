@@ -10,8 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_04_001106) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_09_175642) do
   create_table "languages", force: :cascade do |t|
+    t.string "name"
+    t.string "experience"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "languages_projects", id: false, force: :cascade do |t|
+    t.integer "project_id", null: false
+    t.integer "language_id", null: false
+    t.index ["language_id", "project_id"], name: "index_languages_projects_on_language_id_and_project_id"
+    t.index ["project_id", "language_id"], name: "index_languages_projects_on_project_id_and_language_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.string "subtitle"
+    t.string "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "projects_tools", id: false, force: :cascade do |t|
+    t.integer "project_id", null: false
+    t.integer "tool_id", null: false
+    t.index ["project_id", "tool_id"], name: "index_projects_tools_on_project_id_and_tool_id"
+    t.index ["tool_id", "project_id"], name: "index_projects_tools_on_tool_id_and_project_id"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tools", force: :cascade do |t|
     t.string "name"
     t.string "experience"
     t.datetime "created_at", null: false
