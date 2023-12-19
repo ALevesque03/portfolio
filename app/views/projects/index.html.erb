@@ -1,12 +1,28 @@
-<div class="m-auto w-11/12">
+<div class="w-10/12 m-auto mb-20">
+    <h1 class="text-center font-bold text-2xl">Project Highlights</h1>
+    <div class="border-b-2 w-20 border-black m-auto mb-5 mt-1">
+    </div>
+    <div class="justify-center flex">
+      <div class="bg-black p-[2px] rounded-xl flex justify-evenly">
+        <% @projects.each_with_index do |project, index| %>
+          <% if index == 0 %>
+            <h2 type="button" onclick="toggleProjects('<%= project.id %>')" id="<%= project.id %>" class="project-title text-black bg-gradient-to-r from-f-gradient-1 from-50% via-f-gradient-2 to-f-gradient-3 py-1 rounded-xl w-32 text-center cursor-pointer">
+          <% else %>
+            <h2 type="button" onclick="toggleProjects('<%= project.id %>')" id="<%= project.id %>" class="project-title text-white py-1 rounded-xl w-32 text-center cursor-pointer">
+          <% end %>
+          <%= project.name %></h2>
+        <% end %>
+      </div>
+    </div>
+</div>
 
-  <div id="languages" class="m-auto border border-solid mt-5 p-2 bg-white">
-    <h1 class="font-bold text-lg text-center mb-2 text-teal-blue">Project</h1>
+<div id="ProjectsContainer" class="m-auto my-5 bg-gradient-to-b from-f-gradient-1 from-50% via-f-gradient-2 to-f-gradient-3" style="display: block;">
+  <div id="projects" class="m-auto border border-solid mt-5 p-10">
     
     <div class="grid grid-cols-3 gap-3 pb-2">
       <% @projects.each do |project| %>
         <%= link_to project do %>
-          <div class="p-3 border border-solid text-center">
+          <div class="p-3 text-center">
             <%= render project %>
           </div>
         <% end %>
@@ -19,5 +35,18 @@
       </div>
     <% end %>
   </div>
+</div>
 
-<div>
+<script>
+  function toggleProjects(id) {
+    // Reset styles for all h2 elements with class "project-title"
+    var allH2 = document.querySelectorAll('.project-title');
+    allH2.forEach(function (element) {
+      element.className = "project-title text-white py-1 rounded-xl w-32 text-center cursor-pointer";
+    });
+
+    // Apply styles for the clicked h2 element
+    var clickedH2 = document.getElementById(id);
+    clickedH2.className = "project-title text-black bg-gradient-to-r from-f-gradient-1 from-50% via-f-gradient-2 to-f-gradient-3 py-1 rounded-xl w-32 text-center cursor-pointer";
+  }
+</script>

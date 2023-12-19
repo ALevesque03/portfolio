@@ -1,8 +1,7 @@
 <div id="<%= dom_id project %>">
-  <p>
-    <strong>Name:</strong>
-    <%= project.name %>
-  </p>
+  <h1 class="text-left font-bold text-2xl">
+    # <%= project.name %>
+  </h1>
 
   <p>
     <strong>SubTitle:</strong>
@@ -10,16 +9,29 @@
   </p>
 
   <p>
-    <strong>Text:</strong>
     <%= project.text %>
   </p>
 
+  <%# Image %>
+  <div class="w-80 h-60 border border-black">
+    <div>
+      Image
+    </div>
+  </div>
+
   <p>
-    <strong>Text:</strong>
+    <strong>Languages:</strong>
     <% project.languages.each do |language| %>
       <%= language.name %>
       <%= ", " unless language == project.languages.last %>
     <% end %>
   </p>  
+  <p>
+    <strong>Tools:</strong>
+    <% project.tools.each do |tool| %>
+      <%= tool.name %>
+      <%= ", " unless tool == project.tools.last %>
+    <% end %>
+  </p> 
 
 </div>
