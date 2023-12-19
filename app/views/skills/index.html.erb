@@ -1,12 +1,28 @@
-<div class="m-auto w-11/12">
+<div class="w-10/12 m-auto mb-20">
+    <h1 class="text-center font-bold text-2xl">Skills</h1>
+    <div class="border-b-2 w-12 border-black m-auto mb-5 mt-1">
+    </div>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <div class="justify-end flex">
+      <div class="bg-black p-[2px] rounded-xl w-60 flex justify-evenly">
+        <h2 type="button" onclick="toggleLanguageAndSkills('Languages')" id="LanguagesBtn" class="text-black bg-gradient-to-r from-f-gradient-1 from-50% via-f-gradient-2 to-f-gradient-3 py-1 rounded-xl w-1/2 text-center cursor-pointer">Languages</h2>
+        <h2 type="button" onclick="toggleLanguageAndSkills('Tools')" id="ToolsBtn" class="text-white py-1 rounded-xl w-1/2 text-center cursor-pointer">Tools</h2>
+      </div>
+    </div>
+</div>
 
-  <div id="languages" class="m-auto border border-solid mt-5 p-2 bg-white">
-    <h1 class="font-bold text-lg text-center mb-2 text-teal-blue">Skills</h1>
+<%# Skills %>
+<!-- <div class="m-auto my-5 bg-gradient-to-b from-f-gradient-1 from-50% via-f-gradient-2 to-f-gradient-3">
 
-    <div class="grid grid-cols-3 gap-3 pb-2">
+  <div id="languages" class="m-auto p-2">
+    <h1 class="text-left font-bold text-2xl"># Skills</h1>
+
+    <div class="grid grid-cols-2 gap-2 pb-2">
       <% @skills.each do |skill| %>
         <%= link_to skill do %>
-          <div class="p-3 border border-solid text-center">
+          <div class="p-3 text-center">
             <%= render skill %>
           </div>
         <% end %>
@@ -20,4 +36,74 @@
     <% end %>
   </div>
 
-<div>
+</div>
+-->
+<%# Languages %>
+<div id="LanguagesContainer" class="m-auto my-5 bg-gradient-to-b from-f-gradient-1 from-50% via-f-gradient-2 to-f-gradient-3" style="display: block;">
+
+  <div id="languages" class="m-auto border border-solid mt-5 p-10">
+    <h1 class="text-left font-bold text-2xl ml-14"># Programming Languages</h1>
+    
+    <div class="grid grid-cols-2 gap-2 pb-2">
+      <% @languages.each do |language| %>
+        <%= link_to language do %>
+          <div class="p-3 text-center">
+            <%= render language %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    
+    <% if user_signed_in? %>
+      <div class="mb-2 mt-5 text-center">
+        <%= link_to "New Language", new_language_path, class: "bg-green-700 p-2 rounded text-white" %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+<%# Tools %>
+<div id="ToolsContainer" class="m-auto my-5 bg-gradient-to-b from-f-gradient-1 from-50% via-f-gradient-2 to-f-gradient-3" style="display: none;">
+
+  <div id="tools" class="m-auto border border-solid mt-5 p-10">
+    <h1 class="text-right font-bold text-2xl mr-14"># Tools</h1>
+
+  <div class="grid grid-cols-2 gap-2 pb-2">
+    <% @tools.each do |tool| %>
+      <%= link_to tool do %>
+        <div class="p-3 text-center">
+          <%= render tool %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+    <% if user_signed_in? %>
+      <div class="mb-2 mt-5 text-center">
+        <%= link_to "New tool", new_tool_path, class: "bg-green-700 p-2 rounded text-white" %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+
+<script>
+  function toggleLanguageAndSkills(id) {
+    var languagesContainer = document.getElementById("LanguagesContainer");
+    var toolsContainer = document.getElementById("ToolsContainer");
+    var languagesBtn = document.getElementById("LanguagesBtn");
+    var toolsBtn = document.getElementById("ToolsBtn");
+
+    if (id === 'Languages') {
+      languagesBtn.className = "text-black bg-gradient-to-r from-f-gradient-1 from-50% via-f-gradient-2 to-f-gradient-3 py-1 rounded-xl w-1/2 text-center cursor-pointer";
+      toolsBtn.className = "text-white py-1 rounded-xl w-1/2 text-center cursor-pointer";
+      languagesContainer.style.display = 'block';
+      toolsContainer.style.display = 'none';
+    } else {
+      languagesBtn.className = "text-white py-1 rounded-xl w-1/2 text-center cursor-pointer";
+      toolsBtn.className = "text-black bg-gradient-to-r from-f-gradient-1 from-50% via-f-gradient-2 to-f-gradient-3 py-1 rounded-xl w-1/2 text-center cursor-pointer";
+      languagesContainer.style.display = 'none';
+      toolsContainer.style.display = 'block';
+    }
+  }
+</script>

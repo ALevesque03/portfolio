@@ -10,14 +10,19 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body class="bg-teal-gray">
+  <body class="bg-[url('HexagonBackground.jpg')] bg-1200 flex flex-col min-h-screen">
     <%= render 'home/navigation' %>
     <% if notice %>
       <%= render 'home/alerts' %>
     <% end %>
-    <main>
-      <%= yield %>
+    <main class="flex-grow">
+      <div class="">
+        <%= yield %>
+      </div>
+        
     </main>
-    <%= render 'home/footer' %>
+    <div class="">
+      <%= render 'home/footer' %>
+    </div> 
   </body>
 </html>

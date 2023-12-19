@@ -1,39 +1,113 @@
-<div class="absolute bottom-0 left-0 w-full">
+<%# style="border-radius: 100%/0 0 30px 30px;" %>
+
+<div class="w-full">
     
     <%# My bottom div that contains most stuff %>
-    <div class="bg-neutral-700 text-white py-10 px-40">
-        <div class="flex justify-around">
-            <%# First box %>
-            <div class="">
-                <h1>Anthony Levesque</h1>
-                <p>Curious about me?</p>
-                <div class="mb-2 mt-5 text-center">
-                    <%= link_to "Get in touch", home_about_path, class: "bg-green-700 p-2 rounded text-white" %>
+    <div class="w-full">
+        <%# Gradient top box %>
+        <div class="bg-gradient-to-b from-f-gradient-1 from-50% via-f-gradient-2 to-f-gradient-3 text-black py-10 overflow-hidden relative z-30 text-center" style="border-radius: 100%/0 0 30px 30px;">
+            <div class="w-10/12 m-auto">
+                <div class="text-left p-2">
+                    <h1 class="text-lg font-bold font-russo"># Subheader</h1>
+                    <p class="mb-4 mt-4">
+                        Hello all, I'm glad you're taking a look at my website, I've spent quite some time on the design and the backend of this project, I'm quite proud of it and I wanted to share it with everyone. Please feel free to look at my repo for my website. <a href="https://github.com/ALevesque03/portfolio" class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" target="_blank">GitHub Repo</a>
+                    </p>
+                    <a href="#" class="underline">Click here to learn more about the website refactoration</a>
+                </div>
+                <div class="flex justify-around gap-5">
+                    <div class="text-left">
+                        <div class="flex gap-2">
+                            <%= image_tag("SkillsHexagons.png", class: "h-6" ) %>
+                            <h1 class="text-lg font-bold">Skills</h1>
+                        </div>
+                        <p>I've learned all sorts of skills while working and attending college, including some like self-motivation, problem solver and more.</p>
+                    </div>
+                    <div class="text-left">
+                        <div class="flex gap-2">
+                            <%= image_tag("ProjectHexagon.png", class: "h-6" ) %>
+                            <h1 class="text-lg font-bold">Projects</h1>
+                        </div>
+                        <p>I have worked on a few projects throughout College, in the projects page, I have picked the top three, four if we count my website.</p>
+                    </div>
+                    <div class="text-left">
+                        <div class="flex gap-2">
+                            <p>Image | </p>
+                            <h1 class="text-lg font-bold">Tools</h1>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et</p>
+                    </div>
                 </div>
             </div>
-            <%# Second box %>
-            <div class="flex-col">
-                <div>
-                    <%= link_to "About Me", home_about_path, class: "" %>
-                </div>
-                <div>
-                    <%= link_to "Projects", projects_path, class: "" %>
-                </div>
-                <div>
-                    <%= link_to "XXXSomething elseXXX", home_about_path, class: "" %>
+        </div>
+
+        <%# White middle box %>
+        <div class="w-full bg-white text-black pb-10 pt-12 overflow-hidden mt-[-1.5rem] relative z-20 text-center" style="border-radius: 100%/0 0 30px 30px;">
+            <div class="w-full">
+                <div class="w-3/4 m-auto flex justify-around">
+                    <div>
+                        <h3 class="text-lg font-bold font-russo"># Contact</h3>
+                    </div>
+                    
+                    <%# Box containing icons and links to websites %>
+                    <div class="text-left">
+                        <div class="mb-4">
+                            <p>Laurem ipsum text and to more text to read and to see if there's anything that I can think of</p>
+                        </div>
+                        <div class="flex gap-9">
+                            <a href="https://www.linkedin.com/in/anthonylevesque70/" target="_blank">
+                                <%= image_tag("LinkedIn.png", class: "h-6", ) %>
+                            </a>
+                            <a href="mailto:anthonylevesque70@gmail.com">
+                                <%= image_tag("Email.png", class: "h-6", ) %>
+                            </a>
+                            <a href="https://github.com/ALevesque03" target="_blank">
+                                <%= image_tag("Github.png", class: "h-6", ) %>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <%# Third box %>
-            <div class="flex-col">
-                <div>
-                    <%= link_to "Languages", languages_path, class: "" %>
+        </div>
+        <%# Bottom grey box %>
+        <div class="bg-neutral-700 text-white mt-[-1.5rem] relative z-10 text-center">
+            <div class="flex justify-around pb-10 pt-12 w-10/12 m-auto">
+                <%# First box %>
+                <div class="">
+                    <h1 class="font-rubik">Anthony Levesque</h1>
+                    <p>Curious about me?</p>
+                    <div class="mb-2 mt-5 text-center">
+                        <%= link_to "Get in touch", home_contact_path, class: "bg-green-700 p-2 rounded text-white" %>
+                    </div>
                 </div>
-                <div>
-                    <%= link_to "Tools", tools_path, class: "" %>
+                <%# Second box %>
+                <div class="flex-col">
+                    <div>
+                        <%= link_to "About Me", home_contact_path, class: "" %>
+                    </div>
+                    <div>
+                        <%= link_to "Projects", projects_path, class: "" %>
+                    </div>
+                    <div>
+                        <%= link_to "XXXSomething elseXXX", home_index_path, class: "" %>
+                    </div>
                 </div>
-                <div>
-                    <%= link_to "Skills", skills_path, class: "" %>
+                <%# Third box %>
+                <div class="flex-col">
+                    <div>
+                        <%= link_to "Languages", languages_path, class: "" %>
+                    </div>
+                    <div>
+                        <%= link_to "Tools", tools_path, class: "" %>
+                    </div>
+                    <div>
+                        <%= link_to "Skills", skills_path, class: "" %>
+                    </div>
                 </div>
+            </div>
+            <div>
+                <p>
+                    &copy; 2023 Anthony Levesque
+                </p>
             </div>
         </div>
     </div>
