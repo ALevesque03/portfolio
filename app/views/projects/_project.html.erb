@@ -14,4 +14,12 @@
     <%= project.text %>
   </p>
 
+  <p>
+    <strong>Text:</strong>
+    <% project.languages.each do |language| %>
+      <%= language.name %>
+      <%= ", " unless language == project.languages.last %>
+    <% end %>
+  </p>  
+
 </div>

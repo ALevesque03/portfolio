@@ -33,6 +33,6 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-        params.require(:project).permit(:name, :subtitle, :text, :name, language_ids: [], tool_ids: [])
+        params.require(:project).permit(:name, :subtitle, :text, language_ids: [], tool_ids: [])
     end
 end
