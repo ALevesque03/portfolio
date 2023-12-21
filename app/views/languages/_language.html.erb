@@ -1,4 +1,9 @@
 <div id="<%= dom_id language %>">
+  <div>
+    <% if language.image.attached? %>
+      <%= image_tag(language.image, class: "h-10") %>
+    <% end %>
+  </div>
   <div data-text="<%= language.experience %>" class="tooltip">
     <%= language.name %>
   </div>
