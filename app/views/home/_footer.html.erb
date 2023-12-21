@@ -7,10 +7,10 @@
         <%# Gradient top box %>
         <div class="bg-gradient-to-b from-f-gradient-1 from-50% via-f-gradient-2 to-f-gradient-3 text-black py-10 overflow-hidden relative z-30 text-center" style="border-radius: 100%/0 0 30px 30px;">
             <div class="w-10/12 m-auto">
-                <div class="text-left p-2">
-                    <h1 class="text-lg font-bold font-russo"># Subheader</h1>
+                <div class="text-left p-2 mb-4">
+                    <h1 class="text-2xl font-bold font-russo"># Subheader</h1>
                     <p class="mb-4 mt-4">
-                        Hello all, I'm glad you're taking a look at my website, I've spent quite some time on the design and the backend of this project, I'm quite proud of it and I wanted to share it with everyone. Please feel free to look at my repo for my website. <a href="https://github.com/ALevesque03/portfolio" class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" target="_blank">GitHub Repo</a>
+                        Hello all, I'm glad you're taking a look at my website, I've spent quite some time on the design and the backend of this project, I'm quite proud of it and I wanted to share it with everyone. Please feel free to look at my repo for my website. <a href="https://github.com/ALevesque03/portfolio" class="font-bold hover:underline" target="_blank">GitHub Repo</a>
                     </p>
                     <a href="#" class="underline">Click here to learn more about the website refactoration</a>
                 </div>
@@ -45,7 +45,7 @@
             <div class="w-full">
                 <div class="w-3/4 m-auto flex justify-around">
                     <div>
-                        <h3 class="text-lg font-bold font-russo"># Contact</h3>
+                        <h3 class="text-2xl font-bold font-russo"># Contact</h3>
                     </div>
                     
                     <%# Box containing icons and links to websites %>
@@ -71,12 +71,16 @@
         <%# Bottom grey box %>
         <div class="bg-neutral-700 text-white mt-[-1.5rem] relative z-10 text-center">
             <div class="flex justify-around pb-10 pt-12 w-10/12 m-auto">
+            <%# <div class="text-sm p-5 text-center">
+            <div class="text-left inline-block"> %>
                 <%# First box %>
-                <div class="">
-                    <h1 class="font-rubik">Anthony Levesque</h1>
-                    <p>Curious about me?</p>
-                    <div class="mb-2 mt-5 text-center">
-                        <%= link_to "Get in touch", home_contact_path, class: "bg-green-700 p-2 rounded text-white" %>
+                <div class="text-center">
+                    <div class="text-left inline-block">
+                        <h1 class="font-rubik text-2xl">Anthony Levesque</h1>
+                        <p>Curious about me?</p>
+                        <div class="mb-2 mt-5">
+                            <%= link_to "Get in touch", home_contact_path, class: "border rounded-l border-white p-2 rounded text-white" %>
+                        </div>
                     </div>
                 </div>
                 <%# Second box %>

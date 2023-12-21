@@ -1,6 +1,10 @@
 module.exports = {
   theme: {
     extend: {
+      fontFamily: {
+        rubik: ['"Rubik Glitch"', 'sans-serif'],
+        russo: ['"Russo One"', 'sans-serif'],
+      },
       backgroundSize: {
         1200: '120rem',
       },
