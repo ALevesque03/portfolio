@@ -1,16 +1,13 @@
 <div id="<%= dom_id language %>">
-  <div>
-    <% if language.image.attached? %>
-      <%= image_tag(language.image, class: "h-10") %>
-    <% end %>
+  <div data-text="<%= language.experience %>" class="tooltip flex justify-center items-center">
+    <div>
+      <% if language.image.attached? %>
+        <%= image_tag(language.image, class: "h-10") %>
+      <% end %>
+    </div>
+    <div class="pl-3">
+      <%= language.name %>
+    </div>
   </div>
-  <div data-text="<%= language.experience %>" class="tooltip">
-    <%= language.name %>
-  </div>
-
-  <%# <p>
-    <strong>Experience:</strong>
-    <%= language.experience 
-  </p> %>
 
 </div>

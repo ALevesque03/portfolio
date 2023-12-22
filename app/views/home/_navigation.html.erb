@@ -1,11 +1,11 @@
 <nav class="flex justify-between items-center w-full h-16 border-b-2 border-solid bg-white border-neutral-500 pb-2 pt-2 text-black mb-10 text-lg">
     <div class="flex ml-10">
-        <%= link_to home_index_path, class: "mr-5 font-rubik text-2xl" do %>
+        <%= link_to home_index_path, class: "mr-5 font-rubik lg:text-2xl sm:text-lg text-base" do %>
             Anthony Levesque
         <% end %>
         <%= image_tag("AnthonyImage.jpg", class: "h-6 mr-10", style: "clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);") %>
     </div>
-    <div class="mr-20 flex gap-5">
+    <div class="mr-20 flex gap-5 lg:text-base sm:text-sm text-xs">
         <%= link_to home_index_path do %>
             About
         <% end %>
