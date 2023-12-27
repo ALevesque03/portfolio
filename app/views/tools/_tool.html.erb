@@ -1,12 +1,13 @@
 <div id="<%= dom_id tool %>">
-  <p>
-    <strong>Name:</strong>
-    <%= tool.name %>
-  </p>
-
-  <p>
-    <strong>Experience:</strong>
-    <%= tool.experience %>
-  </p>
+  <div data-text="<%= tool.experience %>" class="tooltip flex justify-center items-center">
+    <div>
+      <% if tool.image.attached? %>
+        <%= image_tag(tool.image, class: "h-10") %>
+      <% end %>
+    </div>
+    <div class="pl-3">
+      <%= tool.name %>
+    </div>
+  </div>
 
 </div>
