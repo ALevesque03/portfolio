@@ -1,0 +1,16 @@
+<div class="m-auto w-11/12">
+
+  <div id="projects" class="m-auto border border-solid mt-5 p-2 bg-white">
+    <h1 class="font-bold text-lg text-center mb-2 text-teal-blue">Editing project</h1>
+
+    <%= render "form", project: @project %>
+
+    <br>
+
+    <div class="mb-2 mt-5 text-center">
+      <%= link_to "Show this project", @project, class: "bg-green-700 p-2 rounded text-white" %> |
+      <%= link_to "Back to projects", projects_path, class: "bg-green-700 p-2 rounded text-white" %>
+    </div>
+  </div>
+
+<div>

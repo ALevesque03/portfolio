@@ -1,0 +1,15 @@
+
+<div class="m-auto w-11/12">
+
+  <div id="projects" class="m-auto border border-solid mt-5 p-2 bg-white">
+    <%= render @project %>
+
+    <div class="mb-2 mt-5 text-center">
+      <%= link_to "Edit this project", edit_project_path(@project), class: "bg-green-700 p-2 rounded text-white" %> |
+      <%= link_to "Back to projects", projects_path, class: "bg-green-700 p-2 rounded text-white" %>
+
+      <%= button_to "Destroy this project", @project, method: :delete, class: "bg-green-700 p-2 rounded text-white mt-4" %>
+    </div>
+  </div>
+
+<div>

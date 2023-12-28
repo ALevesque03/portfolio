@@ -1,4 +1,5 @@
 <div id="<%= dom_id project %>">
+
   <h1 class="text-left font-bold text-2xl">
     # <%= project.name %>
   </h1>
@@ -13,11 +14,15 @@
   </p>
 
   <%# Image %>
-  <div class="w-80 h-60 border border-black">
+  <% if project.image.attached? %>
     <div>
+      <%= image_tag(project.image, class: "w-80 h-60 border border-black") %>
+    </div>
+  <% else %>
+    <div class="w-80 h-60 border border-black">
       Image
     </div>
-  </div>
+  <% end %>
 
   <p>
     <strong>Languages:</strong>

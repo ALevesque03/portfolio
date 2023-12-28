@@ -26,17 +26,27 @@
         <%= form.text_field :text %>
     </div>
 
-   <%# Select Multiple Languages %>
-  <div>
-    <%= form.label :languages, style: "display: block" %>
-    <%= form.select :language_ids, @languages.map { |l| [l.name, l.id] }, {}, { multiple: true } %>
-  </div>
+    <div>
+        <%= form.label :image, style: "display: block" %>
+        <%= form.file_field :image %>
+    </div>
 
-  <%# Select Multiple Tools %>
-  <div>
-    <%= form.label :tools, style: "display: block" %>
-    <%= form.select :tool_ids, @tools.map { |t| [t.name, t.id] }, {}, { multiple: true } %>
-  </div>
+    <div>
+        <%= form.label :pictures, style: "display: block" %>
+        <%= form.file_field :picutres, multiple: true %>
+    </div>
+
+    <%# Select Multiple Languages %>
+    <div>
+        <%= form.label :languages, style: "display: block" %>
+        <%= form.select :language_ids, @languages.map { |l| [l.name, l.id] }, {}, { multiple: true } %>
+    </div>
+
+    <%# Select Multiple Tools %>
+    <div>
+        <%= form.label :tools, style: "display: block" %>
+        <%= form.select :tool_ids, @tools.map { |t| [t.name, t.id] }, {}, { multiple: true } %>
+    </div>
 
     <div>
         <%= form.submit %>

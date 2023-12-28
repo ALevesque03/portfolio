@@ -1,4 +1,7 @@
 class ProjectsController < ApplicationController
+    before_action :set_project, only: %i[ show edit update destroy ]
+    before_action :authenticate_user!, :except => [:index, :show]
+
     def index
         @projects = Project.all
     end
@@ -8,6 +11,11 @@ class ProjectsController < ApplicationController
     
     def new
         @project = Project.new
+        @languages = Language.all
+        @tools = Tool.all
+    end
+
+    def edit
         @languages = Language.all
         @tools = Tool.all
     end
@@ -26,6 +34,19 @@ class ProjectsController < ApplicationController
         end
     end
 
+      # PATCH/PUT /languages/1 or /languages/1.json
+    def update
+        respond_to do |format|
+        if @project.update(project_params)
+            format.html { redirect_to project_url(@project), notice: "Project was successfully updated." }
+            format.json { render :show, status: :ok, location: @project }
+        else
+            format.html { render :edit, status: :unprocessable_entity }
+            format.json { render json: @project.errors, status: :unprocessable_entity }
+        end
+        end
+    end
+
     private
 
     def set_project
@@ -33,6 +54,6 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-        params.require(:project).permit(:name, :subtitle, :text, language_ids: [], tool_ids: [])
+        params.require(:project).permit(:name, :subtitle, :text, :image, pictures: [], language_ids: [], tool_ids: [])
     end
 end

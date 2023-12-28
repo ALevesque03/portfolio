@@ -42,7 +42,7 @@
 <div id="LanguagesContainer" class="m-auto my-5 bg-gradient-to-b from-f-gradient-1 from-50% via-f-gradient-2 to-f-gradient-3" style="display: block;">
 
   <div id="languages" class="m-auto border border-solid mt-5 p-10">
-    <h1 class="text-left font-bold text-2xl ml-14 pb-4"># Programming Languages</h1>
+    <h1 class="text-center font-bold text-2xl ml-14 pb-4"># Programming Languages</h1>
     
     <div class="grid grid-cols-2 gap-5 pb-2 w-4/5 m-auto">
       <% @languages.each do |language| %>
@@ -66,12 +66,12 @@
 <div id="ToolsContainer" class="m-auto my-5 bg-gradient-to-b from-f-gradient-1 from-50% via-f-gradient-2 to-f-gradient-3" style="display: none;">
 
   <div id="tools" class="m-auto border border-solid mt-5 p-10">
-    <h1 class="text-right font-bold text-2xl mr-14"># Tools</h1>
+    <h1 class="text-center font-bold text-2xl ml-14 pb-4"># Tools</h1>
 
-  <div class="grid grid-cols-2 gap-2 pb-2">
+  <div class="grid grid-cols-2 gap-5 pb-2 w-4/5 m-auto">
     <% @tools.each do |tool| %>
       <%= link_to tool do %>
-        <div class="p-3 text-center">
+        <div class="p-3 text-center m-auto">
           <%= render tool %>
         </div>
       <% end %>
