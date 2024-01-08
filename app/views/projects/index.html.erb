@@ -21,13 +21,15 @@
     
     <%# grid grid-cols-3 gap-3 pb-2 %>
     <div class="">
-      <% @projects.each do |project| %>
-        <div class="p-3 text-center">
-          <%= render project %>
+      <% @projects.each_with_index do |project, index| %>
+        <div id="project-<%= project.id %>" class="project-container" style="display: <%= index.zero? ? 'block' : 'none'; %>;">
+          <div class="p-3 text-center">
+            <%= render project %>
+          </div>
+          <% if user_signed_in? %>
+            <%= link_to "Edit Project", project, class: "bg-green-700 p-2 rounded text-white" %> 
+          <% end %>
         </div>
-        <% if user_signed_in? %>
-          <%= link_to "Edit Project", project, class: "bg-green-700 p-2 rounded text-white" %> 
-        <% end %>
       <% end %>
     </div>
     
@@ -52,8 +54,17 @@
       element.className = "project-title text-white py-1 rounded-xl w-32 text-center cursor-pointer";
     });
 
+    // project-container
+    var allProjectContainer = document.querySelectorAll('.project-container');
+    allProjectContainer.forEach(function (elem) {
+      elem.style.display = "none";
+    });
+
     // Apply styles for the clicked h2 element
     var clickedH2 = document.getElementById(id);
+    var clickedProject = document.getElementById(`project-${id}`);
+    // project-
     clickedH2.className = "project-title text-black bg-gradient-to-r from-f-gradient-1 from-50% via-f-gradient-2 to-f-gradient-3 py-1 rounded-xl w-32 text-center cursor-pointer";
+    clickedProject.style.display = 'block';
   }
 </script>
