@@ -8,11 +8,10 @@
             <%= image_tag(picture, class: "w-full h-full border border-black") %>
           </div>
         <% end %>
-        <div class="text-center absolute bottom-3 left-1/2">
+        <div class="text-center absolute bottom-1 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <% pictureCount = 0 %>
           <% project.pictures.each do |picture| %>
-            <button onclick="changeImage(<%= pictureCount %>)" class="">
-              <%= pictureCount + 1 %>
+            <button onclick="changeImage(<%= pictureCount %>)" class="w-3 h-3 mx-1 rounded-full bg-f-gradient-1 border border-black">
             </button>
             <% pictureCount = pictureCount + 1 %>
           <% end %>
