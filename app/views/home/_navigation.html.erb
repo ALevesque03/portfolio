@@ -1,28 +1,30 @@
 <nav class="flex justify-between items-center w-full h-16 border-b-2 border-solid bg-white border-neutral-500 pb-2 pt-2 text-black mb-10 text-lg">
     <div class="flex ml-10">
-        <%= link_to home_index_path, class: "mr-5 font-rubik lg:text-2xl sm:text-lg text-base" do %>
+        <%= link_to home_index_path, class: "mr-5 font-rubik lg:text-2xl sm:text-lg text-base hover:scale-105 duration-100" do %>
             Anthony Levesque
         <% end %>
-        <%= image_tag("AnthonyImage.jpg", class: "h-6 mr-10", style: "clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);") %>
+        <%= link_to home_index_path, class: "inline w-6" do %>
+            <%= image_tag("AnthonyImage.jpg", class: "h-6 mr-10 hover:scale-125 duration-100", style: "clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);") %>
+        <% end %>
     </div>
     <div class="mr-20 flex gap-5 lg:text-base sm:text-sm text-xs">
-        <%= link_to home_index_path do %>
+        <%= link_to home_index_path, class: "hover:scale-125 duration-100" do %>
             About
         <% end %>
-        <%= link_to projects_path do %>
+        <%= link_to projects_path, class: "hover:scale-125 duration-100" do %>
             Projects
         <% end %>
-        <%= link_to skills_path do %>
+        <%= link_to skills_path, class: "hover:scale-125 duration-100" do %>
             Skills
         <% end %>
-        <%= link_to home_contact_path do %>
+        <%= link_to home_contact_path, class: "hover:scale-125 duration-100" do %>
             Contact
         <% end %>
         
         <% if user_signed_in? %>
-            <%= link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete } %>
+            <%= link_to 'Sign out', destroy_user_session_path, class: "hover:scale-125 duration-100", data: { turbo_method: :delete } %>
         <% elsif %>
-            <%= link_to 'Sign In', new_user_session_path %>
+            <%= link_to 'Sign In', new_user_session_path, class: "hover:scale-125 duration-100" %>
         <% end %>
     </div>
 </nav>
