@@ -19,12 +19,14 @@
 <div id="ProjectsContainer" class="m-auto my-5 bg-gradient-to-b from-f-gradient-1 from-50% via-f-gradient-2 to-f-gradient-3" style="display: block;">
   <div id="projects" class="m-auto border border-solid mt-5 p-10">
     
-    <div class="grid grid-cols-3 gap-3 pb-2">
+    <%# grid grid-cols-3 gap-3 pb-2 %>
+    <div class="">
       <% @projects.each do |project| %>
-        <%= link_to project do %>
-          <div class="p-3 text-center">
-            <%= render project %>
-          </div>
+        <div class="p-3 text-center">
+          <%= render project %>
+        </div>
+        <% if user_signed_in? %>
+          <%= link_to "Edit Project", project, class: "bg-green-700 p-2 rounded text-white" %> 
         <% end %>
       <% end %>
     </div>

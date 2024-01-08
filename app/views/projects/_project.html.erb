@@ -1,42 +1,87 @@
-<div id="<%= dom_id project %>">
+<div id="<%= dom_id project %>" class="md:flex md:flex-row-reverse">
 
-  <h1 class="text-left font-bold text-2xl">
-    # <%= project.name %>
-  </h1>
-
-  <p>
-    <strong>SubTitle:</strong>
-    <%= project.subtitle %>
-  </p>
-
-  <p>
-    <%= project.text %>
-  </p>
-
-  <%# Image %>
-  <% if project.image.attached? %>
-    <div>
-      <%= image_tag(project.image, class: "w-80 h-60 border border-black") %>
-    </div>
-  <% else %>
-    <div class="w-80 h-60 border border-black">
-      Image
-    </div>
-  <% end %>
-
-  <p>
-    <strong>Languages:</strong>
-    <% project.languages.each do |language| %>
-      <%= language.name %>
-      <%= ", " unless language == project.languages.last %>
+  <%# Pictures %>
+    <% if project.pictures.present? %>
+      <div class="w-full h-40 md:w-3/5 md:h-112 border border-black border-solid relative overflow-hidden">
+        <% project.pictures.reverse_each do |picture| %>
+          <div class="slider">
+            <%= image_tag(picture, class: "w-full h-full border border-black") %>
+          </div>
+        <% end %>
+        <div class="text-center absolute bottom-3 left-1/2">
+          <% pictureCount = 0 %>
+          <% project.pictures.each do |picture| %>
+            <button onclick="changeImage(<%= pictureCount %>)" class="">
+              <%= pictureCount + 1 %>
+            </button>
+            <% pictureCount = pictureCount + 1 %>
+          <% end %>
+        </div>
+      </div>
+    <% else %>
+      <div class="w-2/3 h-full border border-black">
+        Image
+      </div>
     <% end %>
-  </p>  
-  <p>
-    <strong>Tools:</strong>
-    <% project.tools.each do |tool| %>
-      <%= tool.name %>
-      <%= ", " unless tool == project.tools.last %>
-    <% end %>
-  </p> 
+
+  <div class="w-full mt-3 md:w-2/5 pr-3 text-center md:m-auto">
+    <div class="text-left inline-block m-auto">
+      <h1 class="font-bold text-2xl mb-3">
+        # <%= project.name %>
+      </h1>
+
+      <h2 class="mb-2 font-bold">
+        <%= project.subtitle %>
+      </h2>
+
+      <p>
+        <strong>Overview:</strong>
+        <%= project.text %>
+      </p>
+
+      <p>
+        <strong>Languages:</strong>
+        <% project.languages.each do |language| %>
+          <%= language.name %>
+          <%= ", " unless language == project.languages.last %>
+        <% end %>
+      </p>  
+      <p>
+        <strong>Tools:</strong>
+        <% project.tools.each do |tool| %>
+          <%= tool.name %>
+          <%= ", " unless tool == project.tools.last %>
+        <% end %>
+      </p>
+    </div>
+  </div>
 
 </div>
+
+<script>
+  var slides = document.querySelectorAll(".slider")
+  var counter = localStorage.getItem('counter') || 0;
+
+  slides.forEach(
+    (slide, index) => {
+      slide.style.left = `${index * 100}%`
+    }
+  )
+
+  function changeImage(number){
+    counter = number;
+    if (counter === slides.length) {
+      counter = 0; // Reset to the first image if the last image is reached
+    }
+    localStorage.setItem('counter', counter);
+    slideImage()
+  }
+
+  function slideImage() {
+    slides.forEach(
+      (slide) => {
+        slide.style.transform = `translateX(-${counter * 100}%)`
+      }
+    )
+  }
+</script>

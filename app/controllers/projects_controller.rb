@@ -47,6 +47,15 @@ class ProjectsController < ApplicationController
         end
     end
 
+    def destroy
+    @project.destroy
+
+    respond_to do |format|
+      format.html { redirect_to projects_url, notice: "Project was successfully destroyed." }
+      format.json { head :no_content }
+    end
+  end
+
     private
 
     def set_project
@@ -54,6 +63,6 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-        params.require(:project).permit(:name, :subtitle, :text, :image, pictures: [], language_ids: [], tool_ids: [])
+        params.require(:project).permit(:name, :subtitle, :text, pictures: [], language_ids: [], tool_ids: [])
     end
 end
