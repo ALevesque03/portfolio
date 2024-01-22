@@ -6,3 +6,11 @@
 
 -Anyway, it is still a functional project but I will be converting it back to PHP in my other PortfolioPHP repo. It's still good practice and a learning experience.
 
+-Restarting OpenLiteSpeed
+sudo service lsws restart
+
+-Removing Temporary cached files for error
+rails tmp:cache:clear
+
+-Recompiling assets for app
+RAILS_ENV=production bundle exec rails assets:precompile
